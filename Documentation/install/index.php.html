@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>Установка &raquo; index.php &raquo; KALIOSTRO.NET</title>
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id='wraper'>
+<div class="header_background">
+	<div class="header_div">
+		<div class="module_name">
+			Car Market (Авторынок) <span>v2.3.1</span>
+		</div>
+        <div class="navagation">
+        	Установка &raquo; index.php
+        </div>
+	</div>
+</div>
+<div class="content">
+<!-- Copyright (c) 2007 - 2010 www.kaliostro.net. All rights reserved. # --><div class="action_div">		<b>1.</b> Даёт возможность вывода блоков на сайт<br/>
+		<span class="action_title">Найти</span> (44):<br />
+		<textarea cols="auto" rows="1" class="find" readonly="readonly">require_once ROOT_DIR.'/engine/init.php';</textarea>		
+		<span class="action_title">Ниже добавить</span> :<br />
+		<textarea cols="auto" rows="3" class="add" readonly="readonly">/* ----------- Car Market (Авторынок) v2.3.1 ----------- */
+include_once(ENGINE_DIR . "/car-market/blocks.php");
+/* ----------- Car Market (Авторынок) v2.3.1 ----------- */</textarea></div><div class="action_div">		<b>2.</b> Вставляем данные блоков в теги шаблона main.tpl<br/>
+		<span class="action_title">Найти</span> (47):<br />
+		<textarea cols="auto" rows="1" class="find" readonly="readonly">	$tpl->load_template('main.tpl');</textarea>		
+		<span class="action_title">Ниже добавить</span> :<br />
+		<textarea cols="auto" rows="7" class="add" readonly="readonly">/* ----------- Car Market (Авторынок) v2.3.1 ----------- */
+	$tpl->set('{block_last_auto}', $tpl->result['block_last_auto']);
+	$tpl->set('{block_hot_auto}',$tpl->result['block_hot_auto']);
+	$tpl->set('{block_dinamic}', $tpl->result['block_dinamic']);
+	$tpl->set('{block_search}', $tpl->result['block_search']);
+	$tpl->set('{block_stats}', $tpl->result['block_stats']);
+/* ----------- Car Market (Авторынок) v2.3.1 ----------- */</textarea></div>
+</div>
+</div>
+<div class="footer">
+<hr />
+Copyright &copy; 2007 - 2010 <a style="color:green" href="http://www.kaliostro.net/">kaliostro</a> . All rights reserved.<!-- Copyright (c) 2007 - 2010 www.kaliostro.net. All rights reserved. # -->
+</div>
+</body>
+</html>

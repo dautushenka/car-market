@@ -1,0 +1,263 @@
+/* CSS Document */ 
+
+/* 2.3.0 */
+.selected_model, .selected_city
+{
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.selected_model img, .selected_city img
+{
+    vertical-align: bottom;
+}
+
+/* Добавление авто */
+label.error {
+	color: red;
+	font-size: 80%;
+	margin-left: 5px;
+	display: run-in;
+	padding: 2px;
+	padding-left: 16px;
+	vertical-align: middle;
+	background: url("../images/unchecked.gif") no-repeat 0px 0px;
+}
+
+label.success {
+	background: transparent url("../images/checked.gif") no-repeat scroll 0
+		0;
+	padding-left: 16px;
+	color: #000000;
+}
+
+input.error {
+	border: 1px solid #FF0000;
+}
+
+#color_div {
+	position: relative;
+	width: 36px;
+	height: 36px;
+	background: url(../images/colorpicker/select.png);
+}
+
+#color_div div {
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 30px;
+	height: 30px;
+	background: url(../images/colorpicker/select.png) center;
+}
+
+.race,.power,.capacity_motor,.cost {
+	width: 70px;
+	border: 1px #999999 solid;
+}
+
+.contact_person,.email,.photo,#name,#photo,#model_other,#city_other {
+	border: 1px #999999 solid;
+	width: 180px;
+}
+
+#dle-content input {
+	border: 1px #CCCCCC solid;
+}
+
+#dle-content select {
+	border: 1px solid #CCCCCC;
+}
+
+#dle-content textarea {
+	border: 1px solid #CCCCCC;
+}
+
+/* Контент авто, без фильтра*/
+#auto-content {
+	margin: 5px;
+}
+
+/* Фильтр */
+.head {
+	padding: 10px;
+	margin: 5px;
+	border: #000000 dashed 1px;
+}
+
+/*просмотр авто*/
+table.autos {
+	border: 1px dashed #000000;
+	font-size: 13px;
+}
+
+table.autos a,.head a,#auto-content a {
+	text-decoration: none;
+	color: #266FA4;
+	font-weight: bold;
+}
+
+table.autos a:hover,.head a:hover,#auto-content a:hover {
+	text-decoration: underline;
+	color: #0099FF;
+	font-weight: bold;
+}
+
+table.autos thead tr {
+	background-color: #CCCCCC;
+	font-weight: bold;
+	color: #000000;
+	border: 1px #000000;
+}
+
+table.autos thead td {
+	padding: 5px;
+	text-align: center;
+}
+
+table.autos tbody td {
+	padding: 3px;
+	text-align: center;
+	border: 1px solid #999999;
+}
+
+table.autos_modern td {
+	padding: 10px;
+}
+
+img.favorites {
+	cursor: pointer;
+	border: 0px;
+}
+
+#compare_master {
+	cursor: pointer;
+	border: 0px;
+}
+
+img.compare {
+	cursor: pointer;
+	border: 0px;
+}
+
+a.mail_friend img {
+	border: 0px;
+}
+
+a.mail_friend:hover {
+	text-decoration: none;
+}
+
+.even {
+	background-color: #f9f9f9;
+}
+
+.over {
+	background-color: #D9E6FF;
+}
+
+/*Просмотр одного авто*/
+.go_big_photo img {
+	border: 5px #FFFFFF solid;
+}
+
+.go_big_photo img:hover {
+	border: 5px #CCCCCC solid;
+}
+
+.lightbox img {
+	border: 0px;
+}
+
+/* Сравнение авто */
+.equal {
+	background: #FFFF66;
+}
+
+#compare-table {
+	border: 1px dashed #000000;
+	font-size: 13px;
+}
+
+#compare-table thead tr {
+	background-color: #CCCCCC;
+	font-weight: bold;
+	color: #000000;
+	border: 1px #000000;
+}
+
+#compare-table thead td {
+	padding: 5px;
+	text-align: center;
+}
+
+#compare-table tbody td {
+	padding: 3px;
+	text-align: center;
+	border: 1px solid #999999;
+}
+
+#compare-table a {
+	text-decoration: none;
+	color: #266FA4;
+	font-weight: bold;
+}
+
+#compare-table a:hover {
+	text-decoration: underline;
+	color: #0099FF;
+	font-weight: bold;
+}
+
+/* ОТправление мыло другу и задать вопрос владельцу */
+#send_mail,#email_auto {
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+	width: 90%;
+	padding: 15px;
+}
+
+#send_mail input,textarea {
+	width: 100%;
+	border: 1px solid #666666;
+}
+
+#email_auto input,textarea {
+	width: 100%;
+	border: 1px solid #666666;
+}
+
+/* печать авто */
+.print {
+	padding: 20px;
+	font-size: 14px;
+	font-weight: bold;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+	width: 19cm;
+}
+
+/* Ссылка на страницу печати */
+a.print-link {
+	text-decoration: none;
+	color: #266FA4;
+}
+
+a.print-link:hover {
+	color: #0099FF;
+	text-decoration: underline;
+}
+
+/* стили отображения авто для модераторов */
+.moder_new_auto {
+	background-color: #99FF66;
+}
+
+.moder_old_auto {
+	background-color: #FFCCFF;
+}
+
+div.navigation a.ajax_link:hover {
+	color: white;
+}

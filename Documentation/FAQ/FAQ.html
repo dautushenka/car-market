@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>FAQ &raquo; KALIOSTRO.NET</title>
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id='wraper'>
+<div class="header_background">
+	<div class="header_div">
+		<div class="module_name">
+			Car Market (Авторынок) <span>v2.3.1</span>
+		</div>
+        <div class="navagation">
+        	FAQ
+        </div>
+	</div>
+</div>
+<div class="content">
+<!-- Copyright (c) 2007 - 2010 www.kaliostro.net. All rights reserved. # --><script type="text/javascript">
+var cur_question = 0;
+function ShowAnswer(question_num, a)
+{
+    if (cur_question == question_num)
+    {
+        //hide
+        document.getElementById('answer' + question_num).style.display = 'none';
+        a.className = '';
+        cur_question = 0;
+    }
+    else
+    {
+        if (cur_question)
+        {
+            document.getElementById('answer' + cur_question).style.display = 'none';
+            document.getElementById('question' + cur_question).className = '';
+        }
+        document.getElementById('answer' + question_num).style.display = 'block';
+        a.className = 'FAQ_open_question';
+        //show new
+        cur_question = question_num;
+    }
+}
+</script><div class='FAQ_question'><a id='question1' href='#' OnClick='ShowAnswer(1, this);return false;' >1. После установки на главной вылазит ошибка "Fatal error: Unable to read..."</a></div><div id='answer1' style='display:none' class='FAQ_answer'>Перезалейте файлы на сервер в бинарном или двоичном режиме. Режим передачи данных настраивается в вашем ФТП клиенте<br /><br ><b>Ссылки:</b><br /><a href='http://forum.kaliostro.net/showthread.php?t=339' target='_blank' >http://forum.kaliostro.net/showthread.php?t=339</a><br/ ><a href='http://forum.kaliostro.net/showthread.php?t=450' target='_blank' >http://forum.kaliostro.net/showthread.php?t=450</a><br/ ></div><div class='FAQ_question'><a id='question2' href='#' OnClick='ShowAnswer(2, this);return false;' >2. как сделать страну/регион по умолчнию в фильтре?</a></div><div id='answer2' style='display:none' class='FAQ_answer'>чтобы установить местоположение по умолчанию открываем файл<br />
+/car-market/classes/CarMarketUser.php<br />
+Находим:<br />
+<div class='php_code'><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;function&nbsp;</span><span style="color: #0000BB">PreparationSearchArray</span><span style="color: #007700">()&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;</span><span style="color: #0000BB"></span>
+</span>
+</div><br />
+После добавляем:<br />
+<div class='php_code'><span style="color: #000000">
+<span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">search_array</span><span style="color: #007700">[</span><span style="color: #DD0000">'country_id'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;<br /></span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">search_array</span><span style="color: #007700">[</span><span style="color: #DD0000">'region_id'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;<br /></span><span style="color: #0000BB">$this</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">search_array</span><span style="color: #007700">[</span><span style="color: #DD0000">'city_id'</span><span style="color: #007700">]&nbsp;=&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB"></span>
+</span>
+</div><br />
+Где вместо нулей нужно выставить id страны, региона и города соответственно.<br /><br ><b>Ссылки:</b><br /><a href='http://forum.kaliostro.net/showthread.php?t=473' target='_blank' >http://forum.kaliostro.net/showthread.php?t=473</a><br/ ></div><div class='FAQ_question'><a id='question3' href='#' OnClick='ShowAnswer(3, this);return false;' >3. Цена по-умолчанию в рублях</a></div><div id='answer3' style='display:none' class='FAQ_answer'>Открыть файл <b>engine/car-market/user/add_auto.php</b><br />
+В строке<br />
+<div class='php_code'><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #DD0000">'currency'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'USD'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB"></span>
+</span>
+</div><br />
+USD заменить на RUR<br />
+<br />
+Чтобы поменять валюту в поиске нужно выполнить следующее:<br />
+Открыть файл <b>engine/car-market/classes/CarMarketUser.php</b><br />
+После <br />
+<div class='php_code'><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">final&nbsp;class&nbsp;</span><span style="color: #0000BB">CarMarketUser&nbsp;</span><span style="color: #007700">extends&nbsp;</span><span style="color: #0000BB">CarMarket&nbsp;<br /></span><span style="color: #007700">{&nbsp;</span><span style="color: #0000BB"></span>
+</span>
+</div><br />
+Добавить следующее<br />
+<div class='php_code'><span style="color: #000000">
+<span style="color: #0000BB"></span><span style="color: #007700">public&nbsp;</span><span style="color: #0000BB">$search_array&nbsp;</span><span style="color: #007700">=&nbsp;array(&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'country_id'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'region_id'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'city_id'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'city_other'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'mark_id'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'model_id'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'model_other'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'capacity_motor_min'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'capacity_motor_max'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'power_min'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'power_max'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'race'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'cost_min'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'cost_max'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'year_min'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'year_max'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'currency'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'RUR'</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'search_count_day'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'isset_photo'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'sort'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'date'</span><span style="color: #007700">,&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'subsort'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">'DESC'</span><span style="color: #007700">,&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #DD0000">'author'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #DD0000">''&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB"></span>
+</span>
+</div><br />
+<br /><br ><b>Ссылки:</b><br /><a href='http://forum.kaliostro.net/showthread.php?t=416' target='_blank' >http://forum.kaliostro.net/showthread.php?t=416</a><br/ ></div><div class='FAQ_question'><a id='question4' href='#' OnClick='ShowAnswer(4, this);return false;' >4. Как сделать, что бы при клике на фото открывался полный обзор авто</a></div><div id='answer4' style='display:none' class='FAQ_answer'>Открываем файл <b>/engine/car-market/user/default.php</b><br />
+Найдём строку 142<br />
+<div class='php_code'><span style="color: #000000">
+<span style="color: #0000BB">$array&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$auto</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ShowAuto</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB"></span>
+</span>
+</div><br />
+И заменяем ее на такую<br />
+<div class='php_code'><span style="color: #000000">
+<span style="color: #0000BB">$array&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$auto</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ShowAuto</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"show_photo"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">))&nbsp;+&nbsp;</span><span style="color: #0000BB">ShowPhoto</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$auto</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB"></span>
+</span>
+</div><br />
+<br />
+Те же самые действия в принципе только в файле main.php<br />
+Найти строка 120<br />
+<div class='php_code'><span style="color: #000000">
+<span style="color: #0000BB">$template</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetRow</span><span style="color: #007700">(</span><span style="color: #0000BB">$auto</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ShowAuto</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"row_auto"</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB"></span>
+</span>
+</div><br />
+заменить на<br />
+<div class='php_code'><span style="color: #000000">
+<span style="color: #0000BB">$template</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetRow</span><span style="color: #007700">(</span><span style="color: #0000BB">$auto</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ShowAuto</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">,&nbsp;array(</span><span style="color: #DD0000">"show_photo"&nbsp;</span><span style="color: #007700">=&gt;&nbsp;</span><span style="color: #0000BB">0</span><span style="color: #007700">))&nbsp;+&nbsp;</span><span style="color: #0000BB">ShowPhoto</span><span style="color: #007700">(</span><span style="color: #0000BB">$id</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$auto</span><span style="color: #007700">),&nbsp;</span><span style="color: #DD0000">"row_auto"</span><span style="color: #007700">);&nbsp;</span><span style="color: #0000BB"></span>
+</span>
+</div><br /><br ><b>Ссылки:</b><br /><a href='http://forum.kaliostro.net/showthread.php?t=148' target='_blank' >http://forum.kaliostro.net/showthread.php?t=148</a><br/ ></div>
+</div>
+</div>
+<div class="footer">
+<hr />
+Copyright &copy; 2007 - 2010 <a style="color:green" href="http://www.kaliostro.net/">kaliostro</a> . All rights reserved.<!-- Copyright (c) 2007 - 2010 www.kaliostro.net. All rights reserved. # -->
+</div>
+</body>
+</html>

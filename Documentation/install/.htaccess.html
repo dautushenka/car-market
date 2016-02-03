@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>Установка &raquo; .htaccess &raquo; KALIOSTRO.NET</title>
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id='wraper'>
+<div class="header_background">
+	<div class="header_div">
+		<div class="module_name">
+			Car Market (Авторынок) <span>v2.3.1</span>
+		</div>
+        <div class="navagation">
+        	Установка &raquo; .htaccess
+        </div>
+	</div>
+</div>
+<div class="content">
+<!-- Copyright (c) 2007 - 2010 www.kaliostro.net. All rights reserved. # --><div class="action_div">		<b>1.</b> Делает возможным использование ЧПУ в модуле, если вы не планируете пользоваться данной возможностью можете не проводиьть данные изменения<br/>
+		<span class="action_title">Найти</span> (3):<br />
+		<textarea cols="auto" rows="1" class="find" readonly="readonly">RewriteEngine On</textarea>		
+		<span class="action_title">Ниже добавить</span> :<br />
+		<textarea cols="auto" rows="22" class="add" readonly="readonly"># Car Market
+RewriteRule ^car-market(.html)?(/?)+$ index.php?do=car-market [L]
+RewriteRule ^car-market/auto([0-9]+).html?$ index.php?do=car-market&amp;action=auto&amp;id=$1 [L]
+RewriteRule ^car-market/add_auto.html?$ index.php?do=car-market&amp;action=add [L]
+RewriteRule ^car-market/account.html?$ index.php?do=car-market&amp;action=account [L]
+RewriteRule ^car-market/search(.html)?(/?)+$ index.php?do=car-market&amp;action=search [L]
+RewriteRule ^car-market/main(.html)?(/?)+$ index.php?do=car-market&amp;action=main [L]
+RewriteRule ^car-market/print([0-9]+).html?$ engine/car-market/print.php?id=$1 [L]
+RewriteRule ^car-market/country-([0-9]+)/region-([0-9]+).html?$ index.php?do=car-market&amp;country_id=$1&amp;region_id=$2 [L]
+RewriteRule ^car-market/region-([0-9]+)/city-([0-9]+)(.html)(/?)$ index.php?do=car-market&amp;region_id=$1&amp;city_id=$2 [L]
+RewriteRule ^car-market/country-([0-9]+)/city-([0-9]+)(.html)(/?)$ index.php?do=car-market&amp;country_id=$1&amp;city_id=$2 [L]
+# RSS
+RewriteRule ^car-market/rss.xml(.*) engine/car-market/rss.php$1 [L]</textarea></div>
+</div>
+</div>
+<div class="footer">
+<hr />
+Copyright &copy; 2007 - 2010 <a style="color:green" href="http://www.kaliostro.net/">kaliostro</a> . All rights reserved.<!-- Copyright (c) 2007 - 2010 www.kaliostro.net. All rights reserved. # -->
+</div>
+</body>
+</html>

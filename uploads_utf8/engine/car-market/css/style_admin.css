@@ -1,0 +1,97 @@
+/* CSS Document */ /* Добавление авто */
+label.error {
+	color: red;
+	font-size: 80%;
+	margin-left: 5px;
+	display: run-in;
+	padding: 2px;
+	padding-left: 16px;
+	vertical-align: middle;
+	background: url("../images/unchecked.gif") no-repeat 0px 0px;
+}
+
+label.success {
+	background: transparent url("../images/checked.gif") no-repeat scroll 0
+		0;
+	padding-left: 16px;
+	color: #000000;
+}
+
+input.error {
+	border: 1px solid #FF0000;
+}
+
+#color_div {
+	position: relative;
+	width: 36px;
+	height: 36px;
+	background: url(../images/colorpicker/select.png);
+}
+
+#color_div div {
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 30px;
+	height: 30px;
+	background: url(../images/colorpicker/select.png) center;
+}
+
+/*Редактирование авто*/
+.filter_name {
+	text-align: right;
+	width: 50%;
+	padding: 2px;
+	padding-right: 5px;
+}
+
+.filter_value {
+	text-align: left;
+	width: 50%;
+	padding: 2px;
+}
+
+#autos td {
+	padding: 5px;
+	border: 2px solid #ddd;
+}
+
+.odd {
+	background-color: #f9f9f9;
+}
+
+.over {
+	background-color: #FEFDDE;
+}
+
+.checked {
+	background-color: #FFC1C1;
+}
+
+/*редактирование городов */
+#country td,#region td,#city td,#marks td,#field td {
+	padding: 5px;
+	border: 2px solid #ddd;
+}
+
+.plus {
+	background-image: url(../images/admin/plus.gif);
+	cursor: pointer;
+	width: 16px;
+	height: 16px;
+}
+
+.minus {
+	background-image: url(../images/admin/minus.gif);
+}
+
+.loader {
+	background-image: url(../images/loader.white.gif);
+	width: 16px;
+	height: 16px;
+}
+
+#images td
+{
+	padding:5px;
+}

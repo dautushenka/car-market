@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+<title>Установка &raquo; engine/engine.php &raquo; KALIOSTRO.NET</title>
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div id='wraper'>
+<div class="header_background">
+	<div class="header_div">
+		<div class="module_name">
+			Car Market (Авторынок) <span>v2.3.1</span>
+		</div>
+        <div class="navagation">
+        	Установка &raquo; engine/engine.php
+        </div>
+	</div>
+</div>
+<div class="content">
+<!-- Copyright (c) 2007 - 2010 www.kaliostro.net. All rights reserved. # --><div class="action_div">		<b>1.</b> Делаем возможным запуск модуля с сайта, если вы поменяете имя модуля то, здесь его тоже нужно будет сменить после  case<br/>
+		<span class="action_title">Найти</span> (52-54):<br />
+		<textarea cols="auto" rows="3" class="find" readonly="readonly">	case "deletenews" :
+		include ENGINE_DIR.'/modules/deletenews.php';
+		break</textarea>		
+		<span class="action_title">Ниже добавить</span> :<br />
+		<textarea cols="auto" rows="5" class="add" readonly="readonly">/* ----------- Car Market (Авторынок) v2.3.1 ----------- */
+	case "car-market" :
+		include ENGINE_DIR.'/car-market/car-market.php';
+		break;
+/* ----------- Car Market (Авторынок) v2.3.1 ----------- */</textarea></div><div class="action_div">		<b>2.</b> Добавляем возможность изменять title страници при нахождении в модуле, также нужно будет сменить если изменять имя модуля<br/>
+		<span class="action_title">Найти</span> (578):<br />
+		<textarea cols="auto" rows="1" class="find" readonly="readonly">elseif ($do == 'stats') $nam_e = $lang['title_stats']; </textarea>		
+		<span class="action_title">Ниже добавить</span> :<br />
+		<textarea cols="auto" rows="3" class="add" readonly="readonly">/* ----------- Car Market (Авторынок) v2.3.1 ----------- */
+elseif ($do == 'car-market') $titl_e=$TitleSpeedBar['title'];
+/* ----------- Car Market (Авторынок) v2.3.1 ----------- */</textarea></div><div class="action_div">		<b>3.</b> Даёт возможность взаимодействовать с SpeedBar<br/>
+		<span class="action_title">Найти</span> (650):<br />
+		<textarea cols="auto" rows="1" class="find" readonly="readonly">if ($titl_e) $s_navigation .= " &amp;raquo; ". $titl_e;</textarea>		
+		<span class="action_title">Ниже добавить</span> :<br />
+		<textarea cols="auto" rows="4" class="add" readonly="readonly">/* ----------- Car Market (Авторынок) v2.3.1 ----------- */
+if ($do=="car-market") $s_navigation = "<a href=\"{$config['http_home_url']}\">".$config['home_title']."</a> &amp;raquo; ". $TitleSpeedBar['speedbar']; 
+/* ----------- Car Market (Авторынок) v2.3.1 ----------- */</textarea></div>
+</div>
+</div>
+<div class="footer">
+<hr />
+Copyright &copy; 2007 - 2010 <a style="color:green" href="http://www.kaliostro.net/">kaliostro</a> . All rights reserved.<!-- Copyright (c) 2007 - 2010 www.kaliostro.net. All rights reserved. # -->
+</div>
+</body>
+</html>
