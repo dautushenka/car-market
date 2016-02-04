@@ -5,7 +5,7 @@ if(!defined('DATALIFEENGINE'))
     die("Hacking attempt!");
 }
 
-define('LIC_DOMAIN', 'auto\.oko\.by');
+define('LIC_DOMAIN', '.');
 define('DLE_CLASSES' , ENGINE_DIR . (($config['version_id'] > 6.3)?'/classes/':'/inc/'));
 define('AJAX' , (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest')?TRUE:FALSE);
 
@@ -33,8 +33,7 @@ if (!class_exists('Licencing'))
     
         public function __construct($domain)
         {
-            self::$dom = $domain;
-            $this->domain = $domain;
+            
         }
     
         public static function check()

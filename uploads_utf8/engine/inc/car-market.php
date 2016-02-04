@@ -25,36 +25,15 @@ class Licencing
 
     public function __construct($domain)
     {
-        if (self::$dom)
-        self::ErrorMessage();
-        	
-        self::$dom = $domain;
-        $this->domain = $domain;
+        
     }
 
     public static function check()
     {
         
     }
-
-    private function ErrorMessage()
-    {
-        self::sendmail();
-        self::$tpl->msg("Error", "Вы используете не лицензионную версию модуля.<br/>За информацией обращайтесь на форум <a href=\"http://forum.kaliostro.net/\" >http://forum.kaliostro.net/</a> или ICQ: 415-74-19");
-        exit();
-    }
-
-    private static function sendmail()
-    {
-        include_once DLE_CLASSES.'mail.class.php';
-        $mail = new dle_mail ($GLOBALS['config']);
-
-        $text  = "Лиц домен:" . LIC_DOMAIN . "\n";
-        $text .= "Текущей домен: " . $_SERVER['HTTP_HOST'];
-
-        $mail->send ("kaliostro@kaliostro.net", "Нарушение лицензии", $text);
-    }
 }
+
 $licence = new Licencing(LIC_DOMAIN);
 
 require(ENGINE_DIR . "/Core_modules/Cache.php");
